@@ -1,0 +1,1095 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JobConnect - Find Your Dream Job in Somalia</title>
+    <meta name="description" content="JobConnect is the leading job platform in Somalia. Find your dream job in Hargeisa, Borama, Berbera, Gabilay, and Burco. Connect with top employers and advance your career.">
+    <meta name="keywords" content="jobs, employment, career, somalia, hargeisa, borama, berbera, gabilay, burco, job search, recruitment, vacancies, hiring">
+    <meta name="author" content="Muse Abdi Dahir">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="JobConnect - Find Your Dream Job in Somalia">
+    <meta property="og:description" content="The leading job platform in Somalia. Find jobs in Hargeisa, Borama, Berbera, Gabilay, and Burco.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yoursite.com">
+    <meta property="og:image" content="https://yoursite.com/og-image.jpg">
+    <meta property="og:site_name" content="JobConnect">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="JobConnect - Find Your Dream Job in Somalia">
+    <meta name="twitter:description" content="The leading job platform in Somalia. Find jobs in Hargeisa, Borama, Berbera, Gabilay, and Burco.">
+    <meta name="twitter:image" content="https://yoursite.com/og-image.jpg">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    
+    <!-- Apple Touch Icon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    
+    <!-- Manifest -->
+    <link rel="manifest" href="manifest.json">
+    
+    <!-- Security Module -->
+    <script src="security.js"></script>
+    <script>
+        (() => {
+            try {
+                const key = 'jobconnect_darkMode';
+                const migratedKey = 'jobconnect_theme_migrated_v2';
+                const migrated = localStorage.getItem(migratedKey);
+
+                if (!migrated) {
+                    localStorage.setItem(key, 'true');
+                    localStorage.setItem(migratedKey, 'true');
+                    document.documentElement.classList.add('dark-mode');
+                    return;
+                }
+
+                const v = localStorage.getItem(key);
+                const shouldDark = v === null ? true : v === 'true';
+                if (v === null) localStorage.setItem(key, 'true');
+                if (shouldDark) document.documentElement.classList.add('dark-mode');
+            } catch (e) {}
+        })();
+    </script>
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="styles.css" as="style">
+    <link rel="preload" href="script.js" as="script">
+    
+    <!-- DNS prefetch for performance -->
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+</head>
+<body>
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <h1>JobConnect</h1>
+            </div>
+            <div class="nav-links" id="navLinks">
+                <a href="#" onclick="showPage('home')" class="nav-link">Home</a>
+                <a href="#" onclick="showPage('jobs')" class="nav-link" id="jobsLink" style="display:none;">Browse Jobs</a>
+                <a href="#" onclick="showPage('dashboard')" class="nav-link" id="dashboardLink" style="display:none;">Dashboard</a>
+                <a href="#" onclick="showPage('savedJobs')" class="nav-link" id="savedJobsLink" style="display:none;">Saved Jobs</a>
+                <a href="#" onclick="showPage('profile')" class="nav-link" id="profileLink" style="display:none;">Profile</a>
+                <a href="#" onclick="showPage('admin')" class="nav-link" id="adminLink" style="display:none;">Admin Panel</a>
+                <a href="#" onclick="showPage('login')" class="nav-link" id="loginLink">Login</a>
+                <a href="#" onclick="logout()" class="nav-link" id="logoutLink" style="display:none;">Logout</a>
+                <button class="theme-toggle" onclick="toggleTheme()" title="Toggle Dark Mode">
+                    <span class="theme-icon">🌙</span>
+                </button>
+            </div>
+            <div class="hamburger" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <div id="homePage" class="page active">
+        <section class="hero">
+            <div class="container">
+                <h1 class="hero-title">Find Your Dream Job in Somaliland</h1>
+                <p class="hero-subtitle">Connect with top employers and discover opportunities in Hargeisa, Borama, Berbera, Gabilay, and Burco</p>
+                
+                <div class="hero-buttons">
+                    <button class="btn btn-primary btn-large" onclick="showPage('jobs')">Browse Jobs</button>
+                    <button class="btn btn-secondary btn-large" id="getStartedBtn" onclick="showPage('login')">Get Started</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="features">
+            <div class="container">
+                <h2 class="section-title">Why Choose JobConnect?</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">🔍</div>
+                        <h3>Easy Job Search</h3>
+                        <p>Filter jobs by city, type, and salary range to find the perfect match</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">💼</div>
+                        <h3>For Employers</h3>
+                        <p>Post jobs quickly and connect with qualified candidates in your area</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">📱</div>
+                        <h3>Mobile Friendly</h3>
+                        <p>Access JobConnect anywhere, anytime from any device</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">⚡</div>
+                        <h3>Quick Apply</h3>
+                        <p>Apply to jobs with just a few clicks and get noticed faster</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div id="loginPage" class="page">
+        <div class="auth-container-modern">
+            <div class="auth-card-modern">
+                <div class="auth-tabs">
+                    <button class="auth-tab active" onclick="switchAuthTab('login')" id="loginTab">
+                        <span class="tab-icon">🔑</span>
+                        <span>Login</span>
+                    </button>
+                    <button class="auth-tab" onclick="switchAuthTab('signup')" id="signupTab">
+                        <span class="tab-icon">✨</span>
+                        <span>Sign Up</span>
+                    </button>
+                    <div class="tab-indicator" id="tabIndicator"></div>
+                </div>
+
+                <div class="auth-forms-container">
+                    <div class="auth-form-wrapper active" id="loginFormWrapper">
+                        <div class="auth-header">
+                            <h2 class="gradient-text">Welcome Back!</h2>
+                            <p class="auth-subtitle">Login to your JobConnect account</p>
+                        </div>
+                        <form id="loginForm" onsubmit="handleLogin(event)">
+                            <div class="form-group">
+                                <label for="loginEmail">📧 Email</label>
+                                <input type="email" id="loginEmail" required placeholder="Enter your email">
+                            </div>
+                            <div class="form-group">
+                                <label for="loginPassword">🔒 Password</label>
+                                <input type="password" id="loginPassword" required placeholder="Enter your password">
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-full btn-gradient">Login Now</button>
+                        </form>
+                    </div>
+
+                    <div class="auth-form-wrapper" id="signupFormWrapper">
+                        <div class="auth-header">
+                            <h2 class="gradient-text">Join JobConnect!</h2>
+                            <p class="auth-subtitle">Create your account and start your journey</p>
+                        </div>
+                        <form id="signupForm" onsubmit="handleSignup(event)">
+                            <div class="form-group">
+                                <label for="signupName">👤 Full Name</label>
+                                <input type="text" id="signupName" required placeholder="Enter your full name">
+                            </div>
+                            <div class="form-group">
+                                <label for="signupEmail">📧 Email</label>
+                                <input type="email" id="signupEmail" required placeholder="Enter your email">
+                            </div>
+                            <div class="form-group">
+                                <label for="signupPassword">🔒 Password</label>
+                                <input type="password" id="signupPassword" required placeholder="Create a password">
+                            </div>
+                            <div class="form-group">
+                                <label for="signupPhone">📱 Phone Number</label>
+                                <input type="tel" id="signupPhone" required placeholder="Enter your phone number">
+                            </div>
+                            <div class="form-group">
+                                <label for="signupUserType">🎯 I am a</label>
+                                <select id="signupUserType" required>
+                                    <option value="">Select user type</option>
+                                    <option value="jobseeker">🔍 Job Seeker</option>
+                                    <option value="employer">🏢 Employer</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-full btn-gradient">Create Account</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="jobsPage" class="page">
+        <div class="container">
+            <div class="page-header">
+                <h2>Browse Jobs</h2>
+                <p>Find opportunities in your city</p>
+            </div>
+
+            <div class="live-stats" style="margin-bottom: 2rem;">
+                <div class="stat-item">
+                    <div class="stat-icon">💼</div>
+                    <div class="stat-number" id="liveJobCount">0</div>
+                    <div class="stat-label">Total Jobs</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-icon">👥</div>
+                    <div class="stat-number" id="liveUserCount">0</div>
+                    <div class="stat-label">Total Accounts</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-icon">🎯</div>
+                    <div class="stat-number" id="liveJobSeekerCount">0</div>
+                    <div class="stat-label">Job Seekers</div>
+                </div>
+            </div>
+
+            <div class="jobs-layout">
+                <aside class="filters-sidebar" id="filtersSidebar">
+                    <div class="filters-header">
+                        <h3>🔍 Filters</h3>
+                        <button class="btn-text" onclick="clearFilters()">Clear all</button>
+                    </div>
+
+                    <div class="active-filters" id="activeFilters"></div>
+
+                    <div class="filter-section">
+                        <button class="filter-section-header" onclick="toggleFilterSection('location')">
+                            <span>📍 Location</span>
+                            <span class="toggle-icon">▼</span>
+                        </button>
+                        <div class="filter-section-content" id="filter-location">
+                            <div class="filter-chips">
+                                <button class="filter-chip active" data-city="" onclick="selectCity(this, '')">All Cities</button>
+                                <button class="filter-chip" data-city="Hargeisa" onclick="selectCity(this, 'Hargeisa')">Hargeisa</button>
+                                <button class="filter-chip" data-city="Borama" onclick="selectCity(this, 'Borama')">Borama</button>
+                                <button class="filter-chip" data-city="Berbera" onclick="selectCity(this, 'Berbera')">Berbera</button>
+                                <button class="filter-chip" data-city="Gabilay" onclick="selectCity(this, 'Gabilay')">Gabilay</button>
+                                <button class="filter-chip" data-city="Burco" onclick="selectCity(this, 'Burco')">Burco</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="filter-section">
+                        <button class="filter-section-header" onclick="toggleFilterSection('jobtype')">
+                            <span>💼 Job Type</span>
+                            <span class="toggle-icon">▼</span>
+                        </button>
+                        <div class="filter-section-content" id="filter-jobtype">
+                            <div class="filter-checkboxes">
+                                <label class="filter-checkbox">
+                                    <input type="checkbox" value="Full-time" onchange="filterByJobType()">
+                                    <span>Full-time</span>
+                                </label>
+                                <label class="filter-checkbox">
+                                    <input type="checkbox" value="Part-time" onchange="filterByJobType()">
+                                    <span>Part-time</span>
+                                </label>
+                                <label class="filter-checkbox">
+                                    <input type="checkbox" value="Contract" onchange="filterByJobType()">
+                                    <span>Contract</span>
+                                </label>
+                                <label class="filter-checkbox">
+                                    <input type="checkbox" value="Freelance" onchange="filterByJobType()">
+                                    <span>Freelance</span>
+                                </label>
+                                <label class="filter-checkbox">
+                                    <input type="checkbox" value="Internship" onchange="filterByJobType()">
+                                    <span>Internship</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="filter-section">
+                        <button class="filter-section-header" onclick="toggleFilterSection('category')">
+                            <span>🏢 Category</span>
+                            <span class="toggle-icon">▼</span>
+                        </button>
+                        <div class="filter-section-content" id="filter-category">
+                            <div class="filter-chips">
+                                <button class="filter-chip active" data-category="" onclick="selectCategory(this, '')">All</button>
+                                <button class="filter-chip" data-category="Technology" onclick="selectCategory(this, 'Technology')">Technology</button>
+                                <button class="filter-chip" data-category="Healthcare" onclick="selectCategory(this, 'Healthcare')">Healthcare</button>
+                                <button class="filter-chip" data-category="Education" onclick="selectCategory(this, 'Education')">Education</button>
+                                <button class="filter-chip" data-category="Finance" onclick="selectCategory(this, 'Finance')">Finance</button>
+                                <button class="filter-chip" data-category="Marketing" onclick="selectCategory(this, 'Marketing')">Marketing</button>
+                                <button class="filter-chip" data-category="Sales" onclick="selectCategory(this, 'Sales')">Sales</button>
+                                <button class="filter-chip" data-category="Design" onclick="selectCategory(this, 'Design')">Design</button>
+                                <button class="filter-chip" data-category="Engineering" onclick="selectCategory(this, 'Engineering')">Engineering</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="filter-section">
+                        <button class="filter-section-header" onclick="toggleFilterSection('experience')">
+                            <span>📊 Experience Level</span>
+                            <span class="toggle-icon">▼</span>
+                        </button>
+                        <div class="filter-section-content" id="filter-experience">
+                            <div class="filter-chips">
+                                <button class="filter-chip active" data-exp="" onclick="selectExperience(this, '')">All</button>
+                                <button class="filter-chip" data-exp="0-2 years" onclick="selectExperience(this, '0-2 years')">0-2 years</button>
+                                <button class="filter-chip" data-exp="3-5 years" onclick="selectExperience(this, '3-5 years')">3-5 years</button>
+                                <button class="filter-chip" data-exp="6-10 years" onclick="selectExperience(this, '6-10 years')">6-10 years</button>
+                                <button class="filter-chip" data-exp="10+ years" onclick="selectExperience(this, '10+ years')">10+ years</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="filter-section">
+                        <button class="filter-section-header" onclick="toggleFilterSection('salary')">
+                            <span>💰 Salary Range</span>
+                            <span class="toggle-icon">▼</span>
+                        </button>
+                        <div class="filter-section-content" id="filter-salary">
+                            <div class="salary-range">
+                                <div class="range-inputs">
+                                    <input type="number" id="filterSalaryMin" placeholder="Min" min="0" step="100" onchange="filterJobs()">
+                                    <span>-</span>
+                                    <input type="number" id="filterSalaryMax" placeholder="Max" min="0" step="100" onchange="filterJobs()">
+                                </div>
+                                <div class="salary-presets">
+                                    <button class="preset-chip" onclick="setSalaryRange(0, 500)">$0-500</button>
+                                    <button class="preset-chip" onclick="setSalaryRange(500, 1000)">$500-1k</button>
+                                    <button class="preset-chip" onclick="setSalaryRange(1000, 2000)">$1k-2k</button>
+                                    <button class="preset-chip" onclick="setSalaryRange(2000, 999999)">$2k+</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="filter-section">
+                        <button class="filter-section-header" onclick="toggleFilterSection('remote')">
+                            <span>🏠 Work Mode</span>
+                            <span class="toggle-icon">▼</span>
+                        </button>
+                        <div class="filter-section-content" id="filter-remote">
+                            <div class="filter-chips">
+                                <button class="filter-chip active" data-remote="" onclick="selectRemote(this, '')">All</button>
+                                <button class="filter-chip" data-remote="true" onclick="selectRemote(this, 'true')">Remote</button>
+                                <button class="filter-chip" data-remote="hybrid" onclick="selectRemote(this, 'hybrid')">Hybrid</button>
+                                <button class="filter-chip" data-remote="false" onclick="selectRemote(this, 'false')">On-site</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="filter-section">
+                        <button class="filter-section-header" onclick="toggleFilterSection('sort')">
+                            <span>⚡ Sort By</span>
+                            <span class="toggle-icon">▼</span>
+                        </button>
+                        <div class="filter-section-content active" id="filter-sort">
+                            <select id="sortBy" class="modern-select" onchange="filterJobs()">
+                                <option value="date-desc">🆕 Newest First</option>
+                                <option value="date-asc">📅 Oldest First</option>
+                                <option value="salary-desc">💵 Highest Salary</option>
+                                <option value="salary-asc">💰 Lowest Salary</option>
+                                <option value="title-asc">🔤 Title A-Z</option>
+                                <option value="relevance">⭐ Most Relevant</option>
+                            </select>
+                        </div>
+                    </div>
+                </aside>
+
+                <div class="jobs-main-content">
+                    <div class="modern-search-container">
+                        <div class="search-box">
+                            <span class="search-icon">🔍</span>
+                            <input type="text" id="searchKeyword" placeholder="Search jobs by title, company, or keyword..." onkeyup="handleSearchInput(event)" onfocus="showSearchSuggestions()" autocomplete="off">
+                            <button class="clear-search" onclick="clearSearch()" title="Clear search">✕</button>
+                        </div>
+                        <div class="search-suggestions" id="searchSuggestions"></div>
+                    </div>
+                
+                    <div class="results-info">
+                        <p id="resultsCount">Showing all jobs</p>
+                    </div>
+
+                    <div id="jobListings" class="job-listings">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="dashboardPage" class="page">
+        <div class="container">
+            <div class="page-header">
+                <h2>Dashboard</h2>
+                <p id="dashboardWelcome"></p>
+            </div>
+
+            <div id="employerDashboard" style="display:none;">
+                <div class="dashboard-stats-grid">
+                    <div class="dash-stat-card">
+                        <h4 id="employerActiveJobs">0</h4>
+                        <p>Active Jobs</p>
+                    </div>
+                    <div class="dash-stat-card">
+                        <h4 id="employerTotalApplications">0</h4>
+                        <p>Total Applications</p>
+                    </div>
+                    <div class="dash-stat-card">
+                        <h4 id="employerTotalViews">0</h4>
+                        <p>Total Views</p>
+                    </div>
+                </div>
+                
+                <div class="dashboard-actions">
+                    <button class="btn btn-primary" onclick="showPage('postJob')">Post New Job</button>
+                    <button class="btn btn-secondary" onclick="showPage('manageApplications')">Manage Applications</button>
+                </div>
+                
+                <h3>Your Posted Jobs</h3>
+                <div id="employerJobs" class="job-listings"></div>
+            </div>
+
+            <div id="jobseekerDashboard" style="display:none;">
+                <div class="dashboard-stats-grid">
+                    <div class="dash-stat-card">
+                        <h4 id="jobseekerApplicationCount">0</h4>
+                        <p>Applications Sent</p>
+                    </div>
+                    <div class="dash-stat-card">
+                        <h4 id="jobseekerSavedCount">0</h4>
+                        <p>Saved Jobs</p>
+                    </div>
+                    <div class="dash-stat-card">
+                        <h4 id="jobseekerProfileViews">0</h4>
+                        <p>Profile Views</p>
+                    </div>
+                </div>
+                
+                <div class="dashboard-actions">
+                    <button class="btn btn-primary" onclick="showPage('jobs')">Browse Jobs</button>
+                    <button class="btn btn-secondary" onclick="showPage('savedJobs')">View Saved Jobs</button>
+                    <button class="btn btn-secondary" onclick="showPage('profile')">Edit Profile</button>
+                </div>
+                
+                <h3>Recent Applications</h3>
+                <div id="jobseekerApplications" class="applications-list"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="postJobPage" class="page">
+        <div class="container">
+            <div class="page-header">
+                <h2>Post a Job</h2>
+                <p>Fill in the details to post your job listing</p>
+            </div>
+
+            <div class="form-container">
+                <form id="postJobForm" onsubmit="handlePostJob(event)">
+                    <input type="hidden" id="editJobId">
+                    
+                    <div class="form-group">
+                        <label for="jobTitle">Job Title *</label>
+                        <input type="text" id="jobTitle" required placeholder="e.g., Software Developer">
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="jobCompany">Company Name *</label>
+                            <input type="text" id="jobCompany" required placeholder="Your company name">
+                        </div>
+                        <div class="form-group">
+                            <label for="jobCategory">Category *</label>
+                            <select id="jobCategory" required>
+                                <option value="">Select category</option>
+                                <option value="Technology">Technology</option>
+                                <option value="Healthcare">Healthcare</option>
+                                <option value="Education">Education</option>
+                                <option value="Finance">Finance</option>
+                                <option value="Marketing">Marketing</option>
+                                <option value="Sales">Sales</option>
+                                <option value="Design">Design</option>
+                                <option value="Engineering">Engineering</option>
+                                <option value="Customer Service">Customer Service</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="jobDescription">Job Description *</label>
+                        <textarea id="jobDescription" required rows="6" placeholder="Describe the job responsibilities, requirements, and qualifications..."></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="jobRequirements">Requirements & Qualifications</label>
+                        <textarea id="jobRequirements" rows="4" placeholder="List the required skills, education, and experience..."></textarea>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="jobType">Job Type *</label>
+                            <select id="jobType" required>
+                                <option value="">Select job type</option>
+                                <option value="Full-time">Full-time</option>
+                                <option value="Part-time">Part-time</option>
+                                <option value="Contract">Contract</option>
+                                <option value="Freelance">Freelance</option>
+                                <option value="Internship">Internship</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="jobExperience">Experience Level *</label>
+                            <select id="jobExperience" required>
+                                <option value="">Select level</option>
+                                <option value="0-2 years">0-2 years</option>
+                                <option value="3-5 years">3-5 years</option>
+                                <option value="6-10 years">6-10 years</option>
+                                <option value="10+ years">10+ years</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="jobSalary">Salary ($/month) *</label>
+                            <input type="number" id="jobSalary" required placeholder="e.g., 6000">
+                        </div>
+                        <div class="form-group">
+                            <label for="jobRemote">Work Location *</label>
+                            <select id="jobRemote" required>
+                                <option value="false">On-site</option>
+                                <option value="true">Remote</option>
+                                <option value="hybrid">Hybrid</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="jobCity">City *</label>
+                            <select id="jobCity" required>
+                                <option value="">Select city</option>
+                                <option value="Hargeisa">Hargeisa</option>
+                                <option value="Borama">Borama</option>
+                                <option value="Berbera">Berbera</option>
+                                <option value="Gabilay">Gabilay</option>
+                                <option value="Burco">Burco</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="jobContact">WhatsApp Number *</label>
+                            <input type="tel" id="jobContact" required placeholder="e.g., +252 63 620 1661">
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="jobDeadline">Application Deadline</label>
+                            <input type="date" id="jobDeadline" min="">
+                        </div>
+                        <div class="form-group">
+                            <label for="jobVacancies">Number of Vacancies</label>
+                            <input type="number" id="jobVacancies" min="1" value="1" placeholder="1">
+                        </div>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary" id="submitJobBtn">Post Job</button>
+                        <button type="button" class="btn btn-secondary" onclick="showPage('dashboard')">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div id="profilePage" class="page">
+        <div class="container">
+            <div class="page-header">
+                <h2>My Profile</h2>
+                <p>Manage your profile information</p>
+            </div>
+
+            <div class="profile-container">
+                <div class="profile-sidebar">
+                    <div class="profile-avatar">
+                        <div class="avatar-circle" id="profileAvatar">
+                            <span id="avatarInitials">U</span>
+                        </div>
+                        <button class="btn btn-secondary btn-small" onclick="changeAvatar()">Change Photo</button>
+                    </div>
+                    <div class="profile-quick-info">
+                        <h3 id="profileDisplayName">User Name</h3>
+                        <p id="profileDisplayEmail">user@email.com</p>
+                        <p id="profileDisplayType">Job Seeker</p>
+                    </div>
+                    <div class="profile-menu">
+                        <button class="profile-menu-item active" onclick="showProfileSection('info', event)">📋 Personal Info</button>
+                        <button class="profile-menu-item" onclick="showProfileSection('resume', event)" id="resumeMenuBtn">📄 Resume & Skills</button>
+                        <button class="profile-menu-item" onclick="showProfileSection('company', event)" id="companyMenuBtn">🏢 Company Info</button>
+                        <button class="profile-menu-item" onclick="showProfileSection('activity', event)">📊 Activity</button>
+                        <button class="profile-menu-item" onclick="showProfileSection('network', event)" id="networkMenuBtn">👥 Network</button>
+                        <button class="profile-menu-item" onclick="showProfileSection('settings', event)">⚙️ Settings</button>
+                    </div>
+                </div>
+
+                <div class="profile-content">
+                    <div id="profileInfoSection" class="profile-section active">
+                        <h3>Personal Information</h3>
+                        <form id="profileInfoForm" onsubmit="updateProfile(event)">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="profileName">Full Name *</label>
+                                    <input type="text" id="profileName" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="profileEmail">Email *</label>
+                                    <input type="email" id="profileEmail" required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="profilePhone">Phone Number *</label>
+                                    <input type="tel" id="profilePhone" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="profileCity">City</label>
+                                    <select id="profileCity">
+                                        <option value="">Select city</option>
+                                        <option value="Hargeisa">Hargeisa</option>
+                                        <option value="Borama">Borama</option>
+                                        <option value="Berbera">Berbera</option>
+                                        <option value="Gabilay">Gabilay</option>
+                                        <option value="Burco">Burco</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="profileBio">Bio / About Me</label>
+                                <textarea id="profileBio" rows="4" placeholder="Tell us about yourself..."></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Save Changes</button>
+                        </form>
+                    </div>
+
+                    <div id="profileResumeSection" class="profile-section">
+                        <h3>Resume & Skills</h3>
+                        <form id="profileResumeForm" onsubmit="updateResume(event)">
+                            <div class="form-group">
+                                <label for="profileEducation">Education</label>
+                                <textarea id="profileEducation" rows="3" placeholder="Your education background..."></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="profileExperience">Work Experience</label>
+                                <textarea id="profileExperience" rows="4" placeholder="Your work experience..."></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="profileSkills">Skills (comma separated)</label>
+                                <input type="text" id="profileSkills" placeholder="e.g., JavaScript, React, Node.js">
+                            </div>
+                            <div class="form-group">
+                                <label for="profileLinkedIn">LinkedIn Profile URL</label>
+                                <input type="url" id="profileLinkedIn" placeholder="https://linkedin.com/in/yourprofile">
+                            </div>
+                            <div class="form-group">
+                                <label for="profilePortfolio">Portfolio/Website URL</label>
+                                <input type="url" id="profilePortfolio" placeholder="https://yourportfolio.com">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Save Resume Info</button>
+                        </form>
+                    </div>
+
+                    <div id="profileCompanySection" class="profile-section">
+                        <h3>Company Information</h3>
+                        <form id="profileCompanyForm" onsubmit="updateCompanyInfo(event)">
+                            <div class="form-group">
+                                <label for="companyName">Company Name *</label>
+                                <input type="text" id="companyName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="companyDescription">Company Description</label>
+                                <textarea id="companyDescription" rows="4" placeholder="Tell us about your company..."></textarea>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="companyIndustry">Industry</label>
+                                    <select id="companyIndustry">
+                                        <option value="">Select industry</option>
+                                        <option value="Technology">Technology</option>
+                                        <option value="Healthcare">Healthcare</option>
+                                        <option value="Education">Education</option>
+                                        <option value="Finance">Finance</option>
+                                        <option value="Marketing">Marketing</option>
+                                        <option value="Other">Other</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="companySize">Company Size</label>
+                                    <select id="companySize">
+                                        <option value="">Select size</option>
+                                        <option value="1-10">1-10 employees</option>
+                                        <option value="11-50">11-50 employees</option>
+                                        <option value="51-200">51-200 employees</option>
+                                        <option value="201-500">201-500 employees</option>
+                                        <option value="500+">500+ employees</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="companyWebsite">Company Website</label>
+                                <input type="url" id="companyWebsite" placeholder="https://yourcompany.com">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Save Company Info</button>
+                        </form>
+                    </div>
+
+                    <div id="profileActivitySection" class="profile-section">
+                        <h3>📊 Your Activity</h3>
+                        <div class="activity-stats">
+                            <div class="activity-stat">
+                                <div class="activity-number" id="activityApplications">0</div>
+                                <div class="activity-label">Applications</div>
+                            </div>
+                            <div class="activity-stat">
+                                <div class="activity-number" id="activitySaved">0</div>
+                                <div class="activity-label">Saved Jobs</div>
+                            </div>
+                            <div class="activity-stat">
+                                <div class="activity-number" id="activityViews">0</div>
+                                <div class="activity-label">Profile Views</div>
+                            </div>
+                        </div>
+                        <div class="activity-feed" id="activityFeed">
+                            <h4>Recent Activity</h4>
+                            <div id="activityList"></div>
+                        </div>
+                    </div>
+
+                    <div id="profileNetworkSection" class="profile-section">
+                        <h3>👥 Your Network</h3>
+                        <div class="network-stats">
+                            <div class="network-stat">
+                                <div class="network-number" id="networkConnections">0</div>
+                                <div class="network-label">Connections</div>
+                            </div>
+                            <div class="network-stat">
+                                <div class="network-number" id="networkFollowing">0</div>
+                                <div class="network-label">Following</div>
+                            </div>
+                        </div>
+                        <div class="network-suggestions">
+                            <h4>People You May Know</h4>
+                            <div id="networkSuggestions"></div>
+                        </div>
+                        <div class="following-companies">
+                            <h4>Companies You Follow</h4>
+                            <div id="followingCompanies"></div>
+                        </div>
+                    </div>
+
+                    <div id="profileSettingsSection" class="profile-section">
+                        <h3>⚙️ Account Settings</h3>
+                        <form id="changePasswordForm" onsubmit="changePassword(event)">
+                            <h4>Change Password</h4>
+                            <div class="form-group">
+                                <label for="currentPassword">Current Password</label>
+                                <input type="password" id="currentPassword" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="newPassword">New Password</label>
+                                <input type="password" id="newPassword" required minlength="6">
+                            </div>
+                            <div class="form-group">
+                                <label for="confirmPassword">Confirm New Password</label>
+                                <input type="password" id="confirmPassword" required minlength="6">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Update Password</button>
+                        </form>
+
+                        <div class="settings-section">
+                            <h4>🔔 Email Notifications</h4>
+                            <div class="checkbox-group">
+                                <label class="modern-checkbox">
+                                    <input type="checkbox" id="notifyNewJobs" checked>
+                                    <span>Notify me about new job postings</span>
+                                </label>
+                                <label class="modern-checkbox">
+                                    <input type="checkbox" id="notifyApplications" checked>
+                                    <span>Notify me about application updates</span>
+                                </label>
+                                <label class="modern-checkbox">
+                                    <input type="checkbox" id="notifyMessages" checked>
+                                    <span>Notify me about new messages</span>
+                                </label>
+                                <label class="modern-checkbox">
+                                    <input type="checkbox" id="notifyRecommendations" checked>
+                                    <span>Send me job recommendations</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="settings-section">
+                            <h4>🔒 Privacy Settings</h4>
+                            <div class="checkbox-group">
+                                <label class="modern-checkbox">
+                                    <input type="checkbox" id="profilePublic" checked>
+                                    <span>Make my profile visible to employers</span>
+                                </label>
+                                <label class="modern-checkbox">
+                                    <input type="checkbox" id="showActivity" checked>
+                                    <span>Show my activity to connections</span>
+                                </label>
+                                <label class="modern-checkbox">
+                                    <input type="checkbox" id="allowMessages">
+                                    <span>Allow employers to message me</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="settings-section">
+                            <h4>🎨 Theme Preferences</h4>
+                            <div class="theme-options">
+                                <button class="theme-option" onclick="setTheme('dark')">
+                                    <span class="theme-preview dark">🌙</span>
+                                    <span>Dark</span>
+                                </button>
+                                <button class="theme-option" onclick="setTheme('light')">
+                                    <span class="theme-preview light">☀️</span>
+                                    <span>Light</span>
+                                </button>
+                                <button class="theme-option" onclick="setTheme('auto')">
+                                    <span class="theme-preview auto">🔄</span>
+                                    <span>Auto</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <button class="btn btn-secondary" onclick="saveAllSettings()">Save All Settings</button>
+
+                        <div class="settings-section danger-zone">
+                            <h4>Danger Zone</h4>
+                            <p>Once you delete your account, there is no going back. Please be certain.</p>
+                            <button class="btn btn-danger" onclick="deleteAccount()">Delete Account</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="savedJobsPage" class="page">
+        <div class="container">
+            <div class="page-header">
+                <h2>Saved Jobs</h2>
+                <p>Jobs you've bookmarked for later</p>
+            </div>
+
+            <div id="savedJobsList" class="job-listings">
+            </div>
+        </div>
+    </div>
+
+    <div id="manageApplicationsPage" class="page">
+        <div class="container">
+            <div class="page-header">
+                <h2>Manage Applications</h2>
+                <p>Review and manage job applications</p>
+            </div>
+
+            <div class="applications-filter">
+                <label for="filterJobSelect">Filter by Job:</label>
+                <select id="filterJobSelect" onchange="filterApplicationsByJob()">
+                    <option value="">All Jobs</option>
+                </select>
+            </div>
+
+            <div id="applicationsManageList" class="applications-manage-container">
+            </div>
+        </div>
+    </div>
+
+    <div id="adminPage" class="page">
+        <div class="container">
+            <div class="page-header">
+                <h2>Admin Panel</h2>
+                <p>Manage jobs and users</p>
+            </div>
+
+            <div class="admin-stats">
+                <div class="stat-card">
+                    <h3 id="totalJobs">0</h3>
+                    <p>Total Jobs</p>
+                </div>
+                <div class="stat-card">
+                    <h3 id="totalUsers">0</h3>
+                    <p>Total Users</p>
+                </div>
+                <div class="stat-card">
+                    <h3 id="totalApplications">0</h3>
+                    <p>Total Applications</p>
+                </div>
+            </div>
+
+            <h3>All Job Listings</h3>
+            <div id="adminJobListings" class="job-listings"></div>
+
+            <div class="admin-section" style="margin-top: 2.5rem;">
+                <h3>Manage Users</h3>
+                <div id="adminUsersList"></div>
+            </div>
+
+            <div class="admin-section" style="margin-top: 2.5rem;">
+                <h3>📋 User Reports</h3>
+                <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">Review and manage reported job postings</p>
+                <div id="adminReportsList"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="jobDetailModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div id="jobDetailContent"></div>
+        </div>
+    </div>
+
+    <div id="applyModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeApplyModal()">&times;</span>
+            <h2>Apply for Job</h2>
+            <form id="applyForm" onsubmit="handleApply(event)">
+                <div class="form-group">
+                    <label for="applicantName">Full Name *</label>
+                    <input type="text" id="applicantName" required>
+                </div>
+                <div class="form-group">
+                    <label for="applicantEmail">Email *</label>
+                    <input type="email" id="applicantEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="applicantPhone">Phone Number *</label>
+                    <input type="tel" id="applicantPhone" required>
+                </div>
+                <div class="form-group">
+                    <label for="applicantMessage">Cover Letter (Optional)</label>
+                    <textarea id="applicantMessage" rows="4" placeholder="Tell the employer why you're a great fit..."></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="applicantResume">Resume/CV Link (Optional)</label>
+                    <input type="url" id="applicantResume" placeholder="Link to your resume or portfolio">
+                </div>
+                <input type="hidden" id="applyJobId">
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">Submit Application</button>
+                    <button type="button" class="btn btn-secondary" onclick="closeApplyModal()">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="reportJobModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeReportModal()">&times;</span>
+            <h2>Report Job Posting</h2>
+            <form id="reportJobForm" onsubmit="handleReportJob(event)">
+                <div class="form-group">
+                    <label for="reportReason">Reason for reporting *</label>
+                    <select id="reportReason" required>
+                        <option value="">Select a reason</option>
+                        <option value="spam">Spam or misleading</option>
+                        <option value="fake">Fake job posting</option>
+                        <option value="inappropriate">Inappropriate content</option>
+                        <option value="duplicate">Duplicate posting</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="reportDetails">Additional details</label>
+                    <textarea id="reportDetails" rows="4" placeholder="Please provide more information..."></textarea>
+                </div>
+                <input type="hidden" id="reportJobId">
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-danger">Submit Report</button>
+                    <button type="button" class="btn btn-secondary" onclick="closeReportModal()">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="applicationDetailModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeApplicationDetailModal()">&times;</span>
+            <div id="applicationDetailContent"></div>
+        </div>
+    </div>
+
+    <div id="confirmModal" class="modal">
+        <div class="modal-content modal-small">
+            <h3 id="confirmTitle">Confirm Action</h3>
+            <p id="confirmMessage">Are you sure you want to proceed?</p>
+            <div class="form-actions">
+                <button class="btn btn-primary" id="confirmYes">Yes</button>
+                <button class="btn btn-secondary" id="confirmNo">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="notification" class="notification"></div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>JobConnect</h3>
+                <p>Connecting job seekers with opportunities in their city</p>
+                <div class="social-links">
+                    <a href="#" class="social-icon">📘</a>
+                    <a href="#" class="social-icon">🐦</a>
+                    <a href="#" class="social-icon">💼</a>
+                    <a href="#" class="social-icon">📸</a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="#" onclick="showPage('home')">Home</a></li>
+                    <li><a href="#" onclick="showPage('jobs')">Browse Jobs</a></li>
+                    <li><a href="#" onclick="showPage('login')">Login</a></li>
+                    <li><a href="#" onclick="showPage('signup')">Sign Up</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <ul class="footer-links">
+                    <li>📧 info@jobconnect.com</li>
+                    <li>📱 +252 636 201 661</li>
+                    <li>📍 Borama, Somaliland</li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Developer</h3>
+                <div class="creator-info">
+                    <p class="creator-name">👨‍💻 Muse Abdi Dahir</p>
+                    <p class="creator-contact">📧 muusejiyu1@gmail.com</p>
+                    <p class="creator-tagline">Full-Stack Developer</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2024 JobConnect. All rights reserved. Crafted with ❤️ by Muse Abdi Dahir</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    
+    <!-- Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "JobConnect",
+        "description": "The leading job platform in Somalia. Find your dream job in Hargeisa, Borama, Berbera, Gabilay, and Burco.",
+        "url": "https://yoursite.com",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Any",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "author": {
+            "@type": "Person",
+            "name": "Muse Abdi Dahir",
+            "email": "muusejiyu1@gmail.com"
+        }
+    }
+    </script>
+</body>
+</html>

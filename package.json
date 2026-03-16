@@ -1,0 +1,13 @@
+{
+  "name": "jobconnect-data-server",
+  "version": "1.0.0",
+  "description": "Simple data server for JobConnect website",
+  "main": "data-server.js",
+  "scripts": {
+    "start": "node data-server.js",
+    "dev": "node data-server.js"
+  },
+  "keywords": ["jobconnect", "data", "server"],
+  "author": "Muse Abdi Dahir",
+  "license": "MIT"
+}
